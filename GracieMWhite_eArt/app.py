@@ -3,10 +3,6 @@ from artworks_data import ARTWORKS  # Import the ARTWORKS dictionary
 
 app = Flask(__name__)
 
-
-# Secret key for session and security
-app.secret_key = "Gracie.Gallery"  # Replace with a strong random key!
-
 @app.route('/')
 def index():
     """Home page that lists all artworks."""
