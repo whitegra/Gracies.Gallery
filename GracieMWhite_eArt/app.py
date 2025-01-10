@@ -21,4 +21,4 @@ def artwork(artwork_id):
     return render_template('artwork.html', artwork=artwork)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
