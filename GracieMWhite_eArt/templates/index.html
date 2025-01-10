@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px; /* Adjusted margin */
+        }
+        .artwork {
+            margin: 5px; /* Smaller space between images */
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            width: 450px; /* Larger images */
+            height: auto;
+        }
+        .artwork img {
+            width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+        }
+        .artwork:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+    </style>
+    <title>Gracie's e-Art Gallery</title>
+</head>
+<body>
+    <h1>Gracie's Gallery</h1>
+    <div class="gallery">
+        {% for artwork_id, data in artworks.items() %}
+        <div class="artwork">
+            <a href="{{ url_for('artwork', artwork_id=artwork_id) }}">
+                <img src="{{ url_for('static', filename='uploads/' + data.filename) }}" alt="{{ data.title }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
